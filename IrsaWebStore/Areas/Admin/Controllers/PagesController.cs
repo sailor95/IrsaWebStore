@@ -87,7 +87,7 @@ namespace IrsaWebStore.Areas.Admin.Controllers
             return RedirectToAction("AddPage");
         }
 
-        // GET : Admin/Pages/EditPage
+        // GET : Admin/Pages/EditPage/id
         public ActionResult EditPage(int id)
         {
             // Declare pageVM
@@ -112,6 +112,56 @@ namespace IrsaWebStore.Areas.Admin.Controllers
             // Return view with model 
 
             return View(model);
+        }
+
+        // POST : Admin/Pages/EditPage/id
+        [HttpPost]
+        public ActionResult EditPage(PageVM model)
+        {   
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+
+            }
+
+            using (Db db = new Db())
+            {
+                int id = model.Id;
+                string slug = "home"; // init
+                PageDTO dto = db.Pages.Find(id);
+                dto.Title = model.Title;
+
+                if (model.Slug != "home")
+                {
+                    if (string.IsNullOrWhiteSpace(model.Slug))
+                    {
+                        slug = model.Title.Replace(" ", "-").ToLower();
+                    }
+                    else
+                    {
+                        slug = model.Slug.Replace(" ", "-").ToLower();
+                    }
+                }
+
+                if(db.Pages.Where(x => x.Id != id).Any(x => x.Title == model.Title) 
+                    || db.Pages.Where(x => x.Id != id).Any(x => x.Slug == model.Slug))
+                {
+                    ModelState.AddModelError("", "That title or slug already exists.");
+                    return View(model);
+                }
+
+                // DTO rest
+                dto.Slug = model.Slug;
+                dto.Body = model.Body;
+                dto.HasSideBar = model.HasSideBar;
+
+                db.SaveChanges();
+            }
+
+            TempData["SM"] = "You have edited the page!";
+
+
+            return RedirectToAction("EditPage");
         }
     }
 }
