@@ -2633,10 +2633,10 @@ input[type="search"] {
 }
 .radio,
 .checkbox {
-  position: relative;
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .radio label,
 .checkbox label {
