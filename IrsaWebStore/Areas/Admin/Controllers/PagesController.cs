@@ -163,5 +163,26 @@ namespace IrsaWebStore.Areas.Admin.Controllers
 
             return RedirectToAction("EditPage");
         }
+
+        // GET : Admin/Pages/PageDetails/id
+        public ActionResult PageDetails(int id)
+        {
+            PageVM model;
+
+            using (Db db = new Db())
+            {
+                PageDTO dto = db.Pages.Find(id);
+
+                if ( dto == null)
+                {
+                    return Content("The page does not exist");
+                }
+
+                model = new PageVM(dto);
+
+            }
+
+                return View(model);
+        }
     }
 }
