@@ -123,5 +123,59 @@ namespace IrsaWebStore.Areas.Admin.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult AddProduct(ProductVM model, HttpPostedFileBase file)
+        {
+            if (!ModelState.IsValid)
+            {
+                using(Db db = new Db())
+                {
+                    model.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+                    return View(model);
+                }
+            }
+            // Check model state
+
+            using (Db db = new Db())
+            {
+                if (db.Products.Any(x => x.Name == model.Name))
+                {
+                    model.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+                    ModelState.AddModelError("", "That product name is taken!");
+
+                    return View(model);
+                }
+            }
+            int id;
+
+            using (Db db = new Db())
+            {
+                ProductDTO product = new ProductDTO();
+
+                product.Name = model.Name;
+                product.Slug = model.Name.Replace(" ", "-").ToLower();
+                product.Description = model.Description;
+                product.Price = model.Price;
+                product.CategoryId = model.CategoryId;
+
+                CategoryDTO catDTO = db.Categories.FirstOrDefault(x => x.Id == model.CategoryId);
+                model.CategoryName = catDTO.Name;
+
+                db.Products.Add(product);
+                db.SaveChanges();
+
+                id = product.Id;
+            }
+
+            TempData["SM"] = "You have added a product!";
+
+            #region Upload Image
+
+            #endregion
+
+            return View();
+        }
+
     }
 }
