@@ -11,18 +11,19 @@
     <p>
         <a href="#" id="newcata">Add new category</a>
         <span class="ajax-text">
-            <img src="~/Content/Img/ajax-loader.gif" />
+            @*<img src="~/Content/Img/ajax-loader.gif" />*@
         </span>
     </p>
 </div>
-@if (!Model.Any())
+
+@if (! Model.Any())
 {
     <h1 class="text-center">There are no categories</h1>
 }
 else
 {
-    <table class="table sorting" id="pages">
-        <tr>
+    <table class="table sorting categories" id="pages">
+        <tr class="home">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -31,7 +32,7 @@ else
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr id="id_@item.Id">
                 <td>
                     @Html.EditorFor(modelItem => item.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 </td>
@@ -54,9 +55,9 @@ else
             // Add new Category
 
             var newCatA = $("a#newcata");
-            var newCatTextInput = $("#newCatname");
+            var newCatTextInput = $("#newcatname");
             var ajaxText = $("span.ajax-text");
-            var table = $("table#page tbody");
+            var table = $("table#pages tbody");
 
             newCatTextInput.keyup(function (e) {
                 if (e.keyCode == 13) {
@@ -67,10 +68,10 @@ else
             newCatA.click(function (e) {
                 e.preventDefault();
 
-                var catName = netCatTextInput.val();
+                var catName = newCatTextInput.val();
 
                 if (catName.length < 2) {
-                    alert("Category name must be at least 2 characters long.")
+                    alert("Category name must be at least 2 characters long.");
                     return false;
                 }
 
@@ -79,15 +80,15 @@ else
                 var url = "/admin/shop/AddNewCategory";
 
                 $.post(url, { catName: catName }, function (data) {
-                    var responese = data.trim();
+                    var response = data.trim();
 
                     if (response == "titletaken") {
-                        ajaxText.html("<span class='alert alert-danger'>That title is taken</span>");
+                        ajaxText.html("<span class='alert alert-danger'>That title is taken!</span>");
                         setTimeout(function () {
                             ajaxText.fadeOut("fast", function () {
-                                ajaxText.html("<img src='/Controllers/Img/ajax-loader.gif'/>");
+                                ajaxText.html("<img src=/Content/Img/ajax-loader.gif />");
                             });
-                        }, 2000);
+                        }, 3000);
                         return false;
                     } else {
                         if (!$("table#pages").length) {
@@ -96,16 +97,16 @@ else
                             ajaxText.html("<span class='alert alert-success'>The category has been added!</span>");
                             setTimeout(function () {
                                 ajaxText.fadeOut("fast", function () {
-                                    ajaxText.html("<img src='/Controllers/Img/ajax-loader.gif'/>");
+                                    ajaxText.html("<img src=/Content/Img/ajax-loader.gif />");
                                 });
-                            }, 2000);
+                            }, 3000);
                             
                             newCatTextInput.val("");
 
                             var toAppend = $("table#pages tbody tr:last").clone();
-                            toAppend.attr("id", "id" + data);
+                            toAppend.attr("id", "id_" + data);
                             toAppend.find("#item_Name").val(catName);
-                            toAppend.find("a.delete").attr("href", "/admin/shop/DeleteCategory" + data);
+                            toAppend.find("a.delete").attr("href", "/admin/shop/DeleteCategory/" + data);
                             table.append(toAppend);
                             table.sortable("refresh");
                         }
@@ -114,24 +115,27 @@ else
             });
 
             ////////////////////////////////////////////////////////
-            // Confirm page deletion
-            $("a.delete").click(function () {
-                if (!confirm("Confirm page deletion")) return false;
-            });
-            ////////////////////////////////////////////////////////
-            // 
+            // Reorder categories
             $("table#pages tbody").sortable({
                 item: "tr:not(.home)",
                 placeholder: "ui-state-highlight",
                 update: function () {
                     var ids = $("table#pages tbody").sortable("serialize");
-                    var url = "/Admin/Pages/ReorderPages";
+                    var url = "/Admin/Shop/ReorderCategories";
 
                     $.post(url, ids, function () {
                     });
                 }
             });
+
             ////////////////////////////////////////////////////////
+            // Confirm category deletion
+            
+            $("body").on("click", "a.delete", function () {
+                if (!confirm("Confirm page deletion")) return false;
+            });
+            ////////////////////////////////////////////////////////
+            
 
         });
 

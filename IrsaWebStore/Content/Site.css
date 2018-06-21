@@ -11,6 +11,10 @@ div.new-cat {
     position: relative;
 }
 
-span.ajax-text {
+/*span.ajax-text {
     display: none;
+}*/
+
+table.sorting.categories td{
+    padding: 20px !important;
 }
