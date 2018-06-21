@@ -151,10 +151,11 @@ else
             });
 
             $("table#pages input.text-box").blur(function () {
+
                 var $this = $(this);
                 var ajaxdiv = $this.parent().find(".ajaxdivtd");
                 var newCatName = $this.val();
-                var id = $this.parent().attr("id").substing(3);
+                var id = $this.parent().parent().attr("id").substring(3);
                 var url = "/admin/shop/RenameCategory";
 
                 if (newCatName.length < 2) {
@@ -164,7 +165,22 @@ else
                 }
 
                 $.post(url, { newCatName: newCatName, id: id }, function (data) {
+                    var response = data.trim();
 
+                    if (response == "titletaken") {
+                        $this.val(originalTextBoxValue);
+                        ajaxdiv.html("<span class='alert alert-danger'>That title is taken!</span>").show();
+                    } else {
+                        ajaxdiv.html("<span class='alert alert-success'>The category name has been changed!</span>").show();
+                    }
+
+                    setTimeout(function () {
+                        ajaxdiv.fadeOut("fast", function () {
+                            ajaxdiv.html("");
+                        });
+                    }, 2000);
+                }).done(function () {
+                    $this.attr("readonly", true);
                 });
 
             });
