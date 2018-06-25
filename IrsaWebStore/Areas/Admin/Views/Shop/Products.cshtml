@@ -73,9 +73,9 @@
 @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts,
     page => Url.Action("Products", new { page, catId = ViewBag.SelectedCat })) @*For GET inputs*@
 
-    @section Scripts {
-        <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-        <script>
+@section Scripts {
+<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script>
 
 $(function () {
 
