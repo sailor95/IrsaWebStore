@@ -9,7 +9,7 @@
 
 <h2>Products</h2>
 
-<select id="SelectedCategory" name="SelectedCategory">
+<select id="SelectCategory" name="SelectCategory">
     <option value="0">All</option>
     @foreach (var item in ViewBag.Categories)
     {
@@ -24,9 +24,11 @@
     }
 </select>
 <br /><br />
+
 <p>
     @Html.ActionLink("Add New Product", "AddProduct")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -39,7 +41,7 @@
             Price
         </th>
         <th>
-            ImageName
+            Image Name
         </th>
         <th></th>
     </tr>
@@ -70,43 +72,43 @@
 
 </table>
 
-@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts,
-    page => Url.Action("Products", new { page, catId = ViewBag.SelectedCat })) @*For GET inputs*@
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Products", new { page, catId = ViewBag.SelectedCat }))
 
-    @section Scripts {
-        <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-        <script>
+@section Scripts {
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script>
 
-            $(function () {
+        $(function () {
 
-                /*
-                * Select products from specified category
-                */
+            /*
+            * Select products from specified category
+            */
+            console.log("yoyoyo!!!! ");
+            $("#SelectCategory").on("change", function () {
+                var url = $(this).val();
 
-                $("#SelectCategory").on("change", function () {
-                    var url = $(this).val();
+                if (url) {
+                    console.log("yoyoyo!!!! 2");
+                    window.location = "/admin/shop/Products?catId=" + url;
+                }
 
-                    if (url) {
-                        window.location = "/admin/shop/Products?catId=" + url;
-                    }
-
-                    return false;
-                });
-
-                //////////////////////////////////////////////////////////////
-
-                /*
-                * Confirm product deletion
-                */
-
-                $("a.delete").click(function () {
-                    if (!confirm("Confirm product deletion")) return false;
-                });
-
-                //////////////////////////////////////////////////////////////
-
+                return false;
             });
 
-        </script>
+            //////////////////////////////////////////////////////////////
 
-    }
+            /*
+            * Confirm product deletion
+            */
+
+            $("a.delete").click(function () {
+                if (!confirm("Confirm product deletion")) return false;
+            });
+
+            //////////////////////////////////////////////////////////////
+
+        });
+
+    </script>
+
+}

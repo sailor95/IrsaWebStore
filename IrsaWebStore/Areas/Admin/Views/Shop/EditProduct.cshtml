@@ -90,15 +90,17 @@
 
 @if (! Model.GalleryImages.Any())
 {
-    <h3>There are no gallery images for this product.</h3>
+    <h3>No gallery images yet.</h3>
 }
 
-@*<form action="/admin/shop/SaveGalleryImages" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
-    <div class="fallback">
-        <input type="file" name="file" multiple />
-        <input type="submit" value="Upload" />
-    </div>
-</form>*@
+    <form action="/admin/shop/SaveGalleryImages" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+        @*<input type="hidden" name="id" value="@Model.Id">*@
+        @*@Html.Hidden("id", Model.Id)*@
+        <div class="fallback">
+            <input type="file" name="file" multiple />
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
 
 <br /><br />
 
@@ -115,7 +117,7 @@
 @section Scripts {
 <script src="~/Scripts/dropzone/dropzone.js"></script>
 <script>
-
+//Dropzone.autoDiscover = true;
 $(function () {
 
     /*
@@ -146,22 +148,29 @@ $(function () {
     /*
     * Dropzone js
     */
-
+    
     Dropzone.options.dropzoneForm = {
         acceptedFiles: "image/*",
-        init: function() {
+        init: function () {
+            //this.on('success', function () {
+            //    console.log("1");
+            //    //location.reload();
+            //});
+
             this.on("complete", function (file) {
                 if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                    console.log("2");
                     location.reload();
                 }
             });
 
             this.on("sending", function (file, xhr, formData) {
+                console.log("3");
                 formData.append("id", @Model.Id);
             });
         }
     };
-
+    //Dropzone.options.dropzoneForm.init();
     //////////////////////////////////////////////////////////////
 
     /*

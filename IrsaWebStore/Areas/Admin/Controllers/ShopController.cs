@@ -454,7 +454,7 @@ namespace IrsaWebStore.Areas.Admin.Controllers
         [HttpPost]
         public void SaveGalleryImages(int id)
         {
-            Console.Write("yEp");
+            //var id = string.IsNullOrEmpty(Request.Params["id"]) ? 0 : int.Parse(Request.Params["id"]);
             // Loop through files
             foreach (string fileName in Request.Files)
             {
