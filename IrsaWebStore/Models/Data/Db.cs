@@ -12,10 +12,10 @@ namespace IrsaWebStore.Models.Data
         public DbSet<SidebarDTO> Sidebar { get; set; }
         public DbSet<CategoryDTO> Categories{ get; set; }
         public DbSet<ProductDTO> Products { get; set; }
-        public System.Data.Entity.DbSet<IrsaWebStore.Models.ViewModel.Pages.PageVM> PageVMs { get; set; }
+        //public System.Data.Entity.DbSet<IrsaWebStore.Models.ViewModel.Pages.PageVM> PageVMs { get; set; }
 
-        public System.Data.Entity.DbSet<IrsaWebStore.Models.ViewModel.Pages.SidebarVM> SidebarVMs { get; set; }
+        //public System.Data.Entity.DbSet<IrsaWebStore.Models.ViewModel.Pages.SidebarVM> SidebarVMs { get; set; }
 
-        public System.Data.Entity.DbSet<IrsaWebStore.Models.ViewModel.Shop.CategoryVM> CategoryVMs { get; set; }
+        //public System.Data.Entity.DbSet<IrsaWebStore.Models.ViewModel.Shop.CategoryVM> CategoryVMs { get; set; }
     }
 }
