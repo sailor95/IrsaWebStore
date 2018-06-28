@@ -21,6 +21,8 @@ table.sorting.categories td{
 
 .ajaxdivtd {
     position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 span.loader {
@@ -34,4 +36,13 @@ span.ajaxmsg {
     display: none;
     position: absolute;
     bottom: 0;
+}
+
+.ajaxcart {
+    position: relative;
+    top: 5px;
+}
+
+.ib{
+    display:inline-block !important;
 }
