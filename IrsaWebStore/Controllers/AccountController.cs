@@ -11,6 +11,18 @@ namespace IrsaWebStore.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            return Redirect("~/account/login");
+        }
+
+        public ActionResult Login()
+        {
+            string username = User.Identity.Name;
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                return RedirectToAction("user-profile");
+            }
+
             return View();
         }
 
