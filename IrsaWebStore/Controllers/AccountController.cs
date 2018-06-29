@@ -137,5 +137,89 @@ namespace IrsaWebStore.Controllers
             FormsAuthentication.SignOut();
             return Redirect("~/account/login");
         }
+
+        public ActionResult UserNavPartial()
+        {
+            string username = User.Identity.Name;
+            UserNavPartialVM model;
+
+            using (Db db = new Db())
+            {
+                UserDTO dto = db.Users.FirstOrDefault(x => x.Username == username);
+
+                model = new UserNavPartialVM()
+                {
+                    FirstName = dto.FirstName,
+                    LastName = dto.LastName
+                };
+            }
+
+            return PartialView(model);
+        }
+
+        [ActionName("user-profile")]
+        public ActionResult UserProfile()
+        {
+            string username = User.Identity.Name;
+            UserProfileVM model;
+
+            using (Db db = new Db())
+            {
+                UserDTO dto = db.Users.FirstOrDefault(x => x.Username == username);
+
+                model = new UserProfileVM(dto);
+            }
+
+            return View("UserProfile", model);
+        }
+
+        [ActionName("user-profile")]
+        [HttpPost]
+        public ActionResult UserProfile(UserProfileVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("UserProfile", model);
+            }
+
+            if (!string.IsNullOrWhiteSpace(model.Password))
+            {
+                if (!model.Password.Equals(model.ConfirmPassword))
+                {
+                    ModelState.AddModelError("", "Passwords do not match.");
+                    return View("UserProfile", model);
+                }
+            }
+
+            using (Db db = new Db())
+            {
+                string username = User.Identity.Name;
+
+                if (db.Users.Where(x => x.Id != model.Id).Any(x => x.Username == username))
+                {
+                    ModelState.AddModelError("", "Username " + model.Username + " already exists.");
+                    model.Username = "";
+                    return View("UserProfile", model);
+                }
+
+                UserDTO dto = db.Users.Find(model.Id);
+
+                dto.FirstName = model.FirstName;
+                dto.LastName = model.LastName;
+                dto.EmailAddress = model.EmailAddress;
+                dto.Username = model.Username;
+
+                if (!string.IsNullOrWhiteSpace(model.Password))
+                {
+                    dto.Password = model.Password;
+                }
+
+                db.SaveChanges();
+            }
+
+            TempData["SM"] = "You have edited your profile!";
+
+            return Redirect("~/account/user-profile");
+        }
     }
 }
