@@ -186,5 +186,12 @@ namespace IrsaWebStore.Controllers
 
         }
 
+        public ActionResult PaypalPartial()
+        {
+            List<CartVM> cart = Session["cart"] as List<CartVM>;
+
+            return PartialView(cart);
+        }
+
     }
 }

@@ -18,13 +18,17 @@
         $@Html.DisplayFor(m => m.Price)
         <br />
 
-        <div class="addtocart">
-            <a href="#" class="addtocart">Add to Cart</a>
-            <span class="loader">
-                <img src="~/Content/Img/ajax-loader.gif" />
-            </span>
-            <span class="ajaxmsg">The product has been added to your cart.</span>
-        </div>
+        @*@if (Request.IsAuthenticated)
+        {*@
+            <div class="addtocart">
+                <a href="#" class="addtocart">Add to Cart</a>
+                <span class="loader">
+                   <img src="~/Content/Img/ajax-loader.gif" />
+                </span>
+                <span class="ajaxmsg">The product has been added to your cart.</span>
+            </div>  
+        @*}*@
+        
     </div>
 </div>
 
