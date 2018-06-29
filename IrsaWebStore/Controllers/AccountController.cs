@@ -13,5 +13,11 @@ namespace IrsaWebStore.Controllers
         {
             return View();
         }
+
+        [ActionName("create-account")]
+        public ActionResult CreateAccount()
+        {
+            return View("CreateAccount");
+        }
     }
 }
