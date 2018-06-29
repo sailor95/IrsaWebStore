@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace IrsaWebStore.Controllers
 {
@@ -26,6 +27,39 @@ namespace IrsaWebStore.Controllers
             }
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginUserVM model)
+        {
+            // Check model state
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Check if the user is valid
+
+            bool isValid = false;
+
+            using (Db db = new Db())
+            {
+                if (db.Users.Any(x => x.Username.Equals(model.Username) && x.Password.Equals(model.Password)))
+                {
+                    isValid = true;
+                }
+            }
+
+            if (!isValid)
+            {
+                ModelState.AddModelError("", "Invalid username or password.");
+                return View(model);
+            }
+            else
+            {
+                FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+                return Redirect(FormsAuthentication.GetRedirectUrl(model.Username, model.RememberMe));
+            }
         }
 
         [ActionName("create-account")]
@@ -96,6 +130,12 @@ namespace IrsaWebStore.Controllers
             // Redirect
             return Redirect("~/account/login");
 
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("~/account/login");
         }
     }
 }
