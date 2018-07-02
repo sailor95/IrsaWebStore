@@ -1,5 +1,6 @@
 ﻿using IrsaWebStore.Models.Data;
 using IrsaWebStore.Models.ViewModel.Account;
+using IrsaWebStore.Models.ViewModel.Shop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -132,12 +133,14 @@ namespace IrsaWebStore.Controllers
 
         }
 
+        [Authorize]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return Redirect("~/account/login");
         }
 
+        [Authorize]
         public ActionResult UserNavPartial()
         {
             string username = User.Identity.Name;
@@ -158,6 +161,7 @@ namespace IrsaWebStore.Controllers
         }
 
         [ActionName("user-profile")]
+        [Authorize]
         public ActionResult UserProfile()
         {
             string username = User.Identity.Name;
@@ -175,6 +179,7 @@ namespace IrsaWebStore.Controllers
 
         [ActionName("user-profile")]
         [HttpPost]
+        [Authorize]
         public ActionResult UserProfile(UserProfileVM model)
         {
             if (!ModelState.IsValid)
@@ -220,6 +225,55 @@ namespace IrsaWebStore.Controllers
             TempData["SM"] = "You have edited your profile!";
 
             return Redirect("~/account/user-profile");
+        }
+
+        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
+        public ActionResult Orders()
+        {
+            List<OrdersForUserVM> ordersForUser = new List<OrdersForUserVM>();
+
+            using (Db db = new Db())
+            {
+                UserDTO user = db.Users.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+                int userId = user.Id;
+
+                List<OrderVM> orders = db.Orders.Where(x => x.UserId == userId).ToArray().Select(x => new OrderVM(x)).ToList();
+
+                foreach (var order in orders)
+                {
+                    Dictionary<string, int> productsAndQty = new Dictionary<string, int>();
+
+                    decimal total = 0m;
+
+                    List<OrderDetailsDTO> orderDetailsDTO = db.OrderDetails.Where(x => x.OrderId == order.OrderId).ToList();
+
+                    foreach (var orderDetails in orderDetailsDTO)
+                    {
+                        ProductDTO product = db.Products.Where(x => x.Id == orderDetails.ProductId).FirstOrDefault();
+
+                        decimal price = product.Price;
+
+                        string productName = product.Name;
+
+                        productsAndQty.Add(productName, orderDetails.Quantity);
+
+                        total += orderDetails.Quantity * price;
+                    }
+
+                    ordersForUser.Add(new OrdersForUserVM()
+                    {
+                        OrderNumber = order.OrderId,
+                        Total = total,
+                        ProductsAndQty = productsAndQty,
+                        CreatedAt = order.CreatedAt
+                    });
+                }
+
+            }
+
+            // Return view with list of OrdersForUserVM
+            return View(ordersForUser);
         }
     }
 }
