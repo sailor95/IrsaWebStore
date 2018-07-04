@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<IrsaWebStore.Models.ViewModel.Shop.ProductVM>
 
 @{
-    ViewBag.Title = ViewBag.CategoryName;
+    ViewBag.Title = "Search List";
 }
 
-<h2>@ViewBag.CategoryName</h2>
+<h2>Search Keyword: "@ViewBag.SearchKeyword"</h2>
 
 <table class="table">
     <tr>
@@ -16,6 +16,9 @@
         </th>
         <th>
             Price
+        </th>
+        <th>
+            Category
         </th>
         <th>
             Image
@@ -32,7 +35,10 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            $@Html.DisplayFor(modelItem => item.Price)
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
             <a href="/shop/product-details/@item.Slug">

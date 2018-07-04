@@ -46,6 +46,8 @@
                         }
                     }
 
+
+
                     @if (Request.IsAuthenticated && User.IsInRole("User"))
                     {
                         if (ViewBag.Title == "User Profile" || ViewBag.Title == "Orders")
@@ -58,12 +60,14 @@
 
                         }
                     }
+
+
                 </ul>
 
                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <ul class="navbar-collapse collapse navbar-right adminarea">
-                        <li>@Html.ActionLink("Admin Area", "Index", "Dashboard", new { area = "Admin"}, null)</li>
+                        <li>@Html.ActionLink("Admin Area", "Index", "Dashboard", new { area = "Admin" }, null)</li>
                     </ul>
                 }
                 else
@@ -74,7 +78,21 @@
                             @Html.Action("CartPartial", "Cart")
                         </ul>
                     }
+                    using (Html.BeginForm("SearchList", "shop", FormMethod.Get))
+                    {
+                        <ul class="nav navbar-nav navbar-collapse navbar-right searchBox">
+                            @*<ul class="nav navbar-nav navbar-collapse navbar-right searchBox">*@
+                            <li>
+                                @*<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">*@
+                                @Html.Editor("search", new { HtmlAttributes = new { @class = "form-control input-sm", placeholder = "Search for products..." } })
+                            </li>
 
+                            <li>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+                                    Search
+                                </button>
+                            </li>
+                        </ul>                    }
                 }
 
             </div>

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace IrsaWebStore.Controllers
 {
+
     public class ShopController : Controller
     {
         // GET: Shop
@@ -29,6 +30,44 @@ namespace IrsaWebStore.Controllers
 
             // Return partial with list
             return PartialView(categoryVMList);
+        }
+
+        
+
+        public ActionResult SearchList(string search)
+        {
+            List<ProductVM> productVMList = new List<ProductVM>();
+            List<ProductVM> searchByNames;
+            List<ProductVM> searchByDescription;
+            List<ProductVM> searchByCategories;
+
+            using (Db db = new Db())
+            {
+                searchByNames = db.Products
+                                  .ToArray()
+                                  .Where(x => x.Name.ToLower().Contains(search.ToLower()))
+                                  .Select(x => new ProductVM(x))
+                                  .ToList();
+                searchByDescription = db.Products
+                                        .ToArray()
+                                        .Where(x => x.Description.ToLower().Contains(search.ToLower()))
+                                        .Select(x => new ProductVM(x))
+                                        .ToList();
+                searchByCategories = db.Products
+                                       .ToArray()
+                                       .Where(x => x.CategoryName.ToLower().Contains(search.ToLower()))
+                                       .Select(x => new ProductVM(x))
+                                       .ToList();
+
+                productVMList.AddRange(searchByNames);
+                productVMList.AddRange(searchByDescription.Where(x => !productVMList.Select(y => y.Id).Contains(x.Id)));
+                productVMList.AddRange(searchByCategories.Where(x => !productVMList.Select(y => y.Id).Contains(x.Id)));
+
+                ViewBag.SearchKeyword = search;
+
+            }
+
+                return View(productVMList);
         }
 
         public ActionResult Category(string name)

@@ -26,6 +26,7 @@ namespace IrsaWebStore.Controllers
                 Session["LoggedInUser"] = "no";
                 //Debug.WriteLine("#1" + "---------- Page: Index: LoggedInUser? " 
                 //    + Session["LoggedInUser"].ToString());
+                Session["CheckoutRequest"] = "no";
             }
 
             // Get/set page slug

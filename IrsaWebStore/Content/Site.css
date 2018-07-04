@@ -75,3 +75,9 @@ form.paypalform {
 .row{
     position: relative;
 }
+
+.searchBox {
+    position: relative;
+    top: 10px;
+    right: 5px;
+}
