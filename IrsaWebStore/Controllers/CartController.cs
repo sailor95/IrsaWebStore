@@ -17,7 +17,17 @@ namespace IrsaWebStore.Controllers
         // GET: Cart
         public ActionResult Index()
         {
+            //Debug.WriteLine("#1" + "---------- Cart: Index: LoggedInUser? "
+            //        + Session["LoggedInUser"].ToString());
+
             // Init the cart list
+
+            if (!Request.IsAuthenticated)
+            {
+                Session["CheckoutRequest"] = "yes";
+                return Redirect("/account/login");
+            }
+
             var cart = Session["cart"] as List<CartVM> ?? new List<CartVM>();
 
             if (cart.Count == 0 || Session["cart"] == null)

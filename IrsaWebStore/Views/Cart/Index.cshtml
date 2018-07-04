@@ -52,8 +52,8 @@ else
                     <img src="/Images/Uploads/Products/@item.ProductId/Thumbs/@item.Image" />
                 </td>
                 <td>
-                    <a href="#" class="incrproduct" data-id="@item.ProductId">+</a>
-                    <a href="#" class="decrproduct" data-id="@item.ProductId">-</a>
+                    <a href="#" class="incrproduct" data-id="@item.ProductId">+</a> |
+                    <a href="#" class="decrproduct" data-id="@item.ProductId">-</a> |
                     <a href="#" class="removeproduct" data-id="@item.ProductId">Remove</a>
                 </td>
                 <td class="total@(item.ProductId)">
@@ -68,7 +68,7 @@ else
             <td></td>
             <td></td>
             <td></td>
-            <td class="grandtotal"><b>Grand total</b> $<span>@ViewBag.GrandTotal</span></td>
+            <td class="grandtotal"><b>Grand total:</b> $<span>@ViewBag.GrandTotal</span></td>
         </tr>
     </table>
 

@@ -35,6 +35,15 @@
                         {
                             <li><a href="/account/login">Login</a></li>
                         }
+
+                        if (ViewBag.Title == "CreateAccount")
+                        {
+                            <li class="active"><a href="/account/create-account">Sign Up</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/account/create-account">Sign Up</a></li>
+                        }
                     }
 
                     @if (Request.IsAuthenticated && User.IsInRole("User"))

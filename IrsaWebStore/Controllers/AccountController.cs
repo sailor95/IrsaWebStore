@@ -3,6 +3,7 @@ using IrsaWebStore.Models.ViewModel.Account;
 using IrsaWebStore.Models.ViewModel.Shop;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -58,6 +59,23 @@ namespace IrsaWebStore.Controllers
             }
             else
             {
+                if(Session["LoggedInUser"].ToString() != "yes")
+                {
+                    Session["LoggedInUser"] = "yes";
+                    //Debug.WriteLine("#1" + "---------- Account: Login: LoggedInUser? "
+                    //+ Session["LoggedInUser"].ToString());
+                }
+
+                if(Session["CheckoutRequest"].ToString() == "yes")
+                {
+                    Session["CheckoutRequest"] = "no";
+                    //Debug.WriteLine("#1" + "---------- Account: Login: LoggedInUser2? "
+                    //+ Session["LoggedInUser"].ToString());
+                    //Debug.WriteLine("#1" + "---------- Account: Login: CheckoutRequest");
+                    FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+                    return Redirect("/cart");
+                }
+
                 FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
                 return Redirect(FormsAuthentication.GetRedirectUrl(model.Username, model.RememberMe));
             }
@@ -137,6 +155,14 @@ namespace IrsaWebStore.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+
+            if(Session["LoggedInUser"].ToString() != "no")
+            {
+                Session["LoggedInUser"] = "no";
+                //Debug.WriteLine("#1" + "---------- Account: Logout: LoggedInUser? "
+                //    + Session["LoggedInUser"].ToString());
+            }
+
             return Redirect("~/account/login");
         }
 

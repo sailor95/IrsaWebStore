@@ -2,6 +2,7 @@
 using IrsaWebStore.Models.ViewModel.Pages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +14,20 @@ namespace IrsaWebStore.Controllers
         // GET: Page
         public ActionResult Index(string page = "")
         {
+            // Check whether it's a logged in User
+            if (Request.IsAuthenticated && User.IsInRole("User"))
+            {
+                Session["LoggedInUser"] = "yes";
+                //Debug.WriteLine("#1" + "---------- Page: Index: LoggedInUser? " 
+                //    + Session["LoggedInUser"].ToString());
+            }
+            else
+            {
+                Session["LoggedInUser"] = "no";
+                //Debug.WriteLine("#1" + "---------- Page: Index: LoggedInUser? " 
+                //    + Session["LoggedInUser"].ToString());
+            }
+
             // Get/set page slug
             if (page == "")
                 page = "home";
