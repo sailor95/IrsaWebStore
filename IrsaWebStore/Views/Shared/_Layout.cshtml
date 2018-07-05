@@ -67,7 +67,7 @@
                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <ul class="navbar-collapse collapse navbar-right adminarea">
-                        <li>@Html.ActionLink("Admin Area", "Index", "Dashboard", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Admin Area", "Index", "Dashboard", new { area = "Admin"}, null)</li>
                     </ul>
                 }
                 else

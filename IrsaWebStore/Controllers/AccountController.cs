@@ -34,6 +34,9 @@ namespace IrsaWebStore.Controllers
         [HttpPost]
         public ActionResult Login(LoginUserVM model)
         {
+            string LoggedInUser = Session["LoggedInUser"] as string;
+            string CheckoutRequest = Session["CheckoutRequest"] as string;
+
             // Check model state
             if (!ModelState.IsValid)
             {
@@ -59,14 +62,14 @@ namespace IrsaWebStore.Controllers
             }
             else
             {
-                if(Session["LoggedInUser"].ToString() != "yes")
+                if(LoggedInUser != "yes")
                 {
                     Session["LoggedInUser"] = "yes";
                     //Debug.WriteLine("#1" + "---------- Account: Login: LoggedInUser? "
                     //+ Session["LoggedInUser"].ToString());
                 }
 
-                if(Session["CheckoutRequest"].ToString() == "yes")
+                if(CheckoutRequest == "yes")
                 {
                     Session["CheckoutRequest"] = "no";
                     //Debug.WriteLine("#1" + "---------- Account: Login: LoggedInUser2? "
@@ -154,9 +157,10 @@ namespace IrsaWebStore.Controllers
         [Authorize]
         public ActionResult Logout()
         {
+            var LoggedInUser = Session["LoggedInUser"] as string;
             FormsAuthentication.SignOut();
 
-            if(Session["LoggedInUser"].ToString() != "no")
+            if(LoggedInUser != "no")
             {
                 Session["LoggedInUser"] = "no";
                 //Debug.WriteLine("#1" + "---------- Account: Logout: LoggedInUser? "

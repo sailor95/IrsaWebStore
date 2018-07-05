@@ -14,6 +14,7 @@ namespace IrsaWebStore.Controllers
         // GET: Page
         public ActionResult Index(string page = "")
         {
+            
             // Check whether it's a logged in User
             if (Request.IsAuthenticated && User.IsInRole("User"))
             {
