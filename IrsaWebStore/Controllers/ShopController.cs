@@ -37,9 +37,9 @@ namespace IrsaWebStore.Controllers
         public ActionResult SearchList(string search)
         {
             List<ProductVM> productVMList = new List<ProductVM>();
-            List<ProductVM> searchByNames;
-            List<ProductVM> searchByDescription;
-            List<ProductVM> searchByCategories;
+            List<ProductVM> searchByNames = new List<ProductVM>();
+            List<ProductVM> searchByDescription = new List<ProductVM>();
+            List<ProductVM> searchByCategories = new List<ProductVM>();
 
             using (Db db = new Db())
             {

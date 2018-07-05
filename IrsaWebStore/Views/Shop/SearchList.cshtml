@@ -6,49 +6,56 @@
 
 <h2>Search Keyword: "@ViewBag.SearchKeyword"</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Category
-        </th>
-        <th>
-            Image
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            <a href="/shop/product-details/@item.Slug">
-                <img src="/Images/Uploads/Products/@item.Id/Thumbs/@item.ImageName" />
-            </a>
-        </td>
-        <td>
-            <a href="/shop/product-details/@item.Slug">Details</a>
-        </td>
-    </tr>
+@if (!Model.Any())
+{
+    <h3>No product contains keyword <span style="font-style:italic; font-size:30px;">"@ViewBag.SearchKeyword"</span>, please search again.</h3>
 }
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Image
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a href="/shop/product-details/@item.Slug">
+                    <img src="/Images/Uploads/Products/@item.Id/Thumbs/@item.ImageName" />
+                </a>
+            </td>
+            <td>
+                <a href="/shop/product-details/@item.Slug">Details</a>
+            </td>
+        </tr>
+        }
+    </table>
+}

@@ -943,6 +943,7 @@
     <Content Include="Views\Cart\PaypalPartial.cshtml" />
     <Content Include="Views\Account\Orders.cshtml" />
     <Content Include="Views\Shop\SearchList.cshtml" />
+    <Content Include="Views\Cart\CartWithoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fileman\aspnet_client\system_web\2_0_50727\" />
