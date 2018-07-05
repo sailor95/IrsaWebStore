@@ -3,10 +3,19 @@
 
 
 <div class="ajaxcart" style="color:white;">
-    <a href="/cart/CartWithoutLogin">
-        <span class="glyphicon glyphicon-shopping-cart"></span>
-    </a>
+    @if (Request.IsAuthenticated)
+    {
+        <a href="/cart">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </a>
+    }
+    else
+    {
+        <a href="/cart/CartWithoutLogin">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </a>
+    }
     Your cart: @Model.Quantity item(s) - $@Model.Price
     <br />
-    @Html.ActionLink("Checkout", "Index")
+    <span class="glyphicon glyphicon-check"></span>@Html.ActionLink("Checkout", "Index")
 </div>

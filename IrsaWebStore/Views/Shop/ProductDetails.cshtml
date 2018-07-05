@@ -18,16 +18,30 @@
         $@Html.DisplayFor(m => m.Price)
         <br />
 
-        @*@if (Request.IsAuthenticated)
-        {*@
-            <div class="addtocart">
-                <a href="#" class="addtocart">Add to Cart</a>
-                <span class="loader">
-                   <img src="~/Content/Img/ajax-loader.gif" />
-                </span>
-                <span class="ajaxmsg">The product has been added to your cart.</span>
-            </div>  
-        @*}*@
+        <div class="addtocart">
+            @*<a href="#" class="addtocart">Add to Cart</a>*@
+            
+            @*Add Multi to cart*@
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Add to Cart
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="addMultiToCart" id="1_added">1</a></li>
+                    <li><a href="#" class="addMultiToCart" id="2_added">2</a></li>
+                    <li><a href="#" class="addMultiToCart" id="3_added">3</a></li>
+                    <li><a href="#" class="addMultiToCart" id="4_added">4</a></li>
+                    <li><a href="#" class="addMultiToCart" id="5_added">5</a></li>
+                </ul>
+            </div>
+            
+            <span class="loader">
+                <img src="~/Content/Img/ajax-loader.gif" />
+            </span>
+            <span class="ajaxmsg">The product has been added to your cart.</span>
+        </div>  
         
     </div>
 </div>
@@ -77,6 +91,29 @@
             });
 
         });
+        /////////////////////////////////////////////
+
+        // Add Multi to Cart
+
+        $("a.addMultiToCart").click(function (e) {
+            e.preventDefault();
+            $("span.loader").addClass("ib");
+            var url = "/cart/AddToCartPartial";
+            var q = parseInt(this.id.substring(0));
+
+            $.get(url, { id: @Model.Id, q: q }, function (data) {
+                $(".ajaxcart").html(data);
+            }).done(function () {
+                $("span.loader").removeClass("ib");
+                $("span.ajaxmsg").addClass("ib");
+                setTimeout(function () {
+                    $("span.ajaxmsg").fadeOut("fast");
+                    $("span.ajaxmsg").removeClass("ib");
+                }, 1500);
+            });
+
+        });
+
         /////////////////////////////////////////////
     });
 </script>    

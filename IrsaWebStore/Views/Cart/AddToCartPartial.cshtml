@@ -1,8 +1,18 @@
 ﻿@model IrsaWebStore.Models.ViewModel.Cart.CartVM
 
-<a href="/cart/CartWithoutLogin">
-    <span class="glyphicon glyphicon-shopping-cart"></span>
-</a>
+
+@if (Request.IsAuthenticated)
+{
+    <a href="/cart">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+}
+else
+{
+    <a href="/cart/CartWithoutLogin">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+}
 
 Your cart: @Model.Quantity item(s) - $@Model.Price
 <br />

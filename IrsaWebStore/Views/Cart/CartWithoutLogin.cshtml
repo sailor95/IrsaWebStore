@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<IrsaWebStore.Models.ViewModel.Cart.CartVM>
 
 @{
-    ViewBag.Title = "Cart Details";
+    ViewBag.Title = "Cart Details No Login";
 }
 
 <h2>Cart Details</h2>
@@ -70,6 +70,8 @@ else
             <td class="grandtotal"><b>Grand total:</b> $<span>@ViewBag.GrandTotal</span></td>
         </tr>
     </table>
+    <br />
+    <a href="/cart" class="btn btn-primary pull-right">Proceed Checkout</a>
 
     @*<div class="paypaldiv">
         <form class="paypalform" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">

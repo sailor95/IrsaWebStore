@@ -103,12 +103,15 @@ namespace IrsaWebStore.Controllers
             return PartialView(model);
         }
 
-        public ActionResult AddToCartPartial(int id)
+        public ActionResult AddToCartPartial(int id, int q)
         {
             // Init CartVM list
             List<CartVM> cart = Session["cart"] as List<CartVM> ?? new List<CartVM>();
-
+            Debug.WriteLine("#1" + "Quality is = " + q);
             CartVM model = new CartVM();
+            // Default quantity = 1
+            var AddedQuantity = q;
+
 
             using (Db db = new Db())
             {
@@ -123,7 +126,7 @@ namespace IrsaWebStore.Controllers
                     {
                         ProductId = product.Id,
                         ProductName = product.Name,
-                        Quantity = 1,
+                        Quantity = AddedQuantity,
                         Price = product.Price,
                         Image = product.ImageName
                     });
@@ -131,7 +134,7 @@ namespace IrsaWebStore.Controllers
                 else
                 {
                     // If it is, increment
-                    productInCart.Quantity++;
+                    productInCart.Quantity += AddedQuantity;
                 }
             }
 
