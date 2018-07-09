@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@IrsaWebStore.Resources.GlobalRes.Language</h2>
 
 <ul>
-    <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbreviation = "en" }, null)</li>
-    <li>@Html.ActionLink("Chinese (Traditional)", "Change", "Language", new { LanguageAbbreviation = "zh-TW" }, null)</li>
+    <li>@Html.ActionLink(@IrsaWebStore.Resources.GlobalRes.English, "Change", "Language", new { LanguageAbbreviation = "en" }, null)</li>
+    <li>@Html.ActionLink(@IrsaWebStore.Resources.GlobalRes.Chinese_tw, "Change", "Language", new { LanguageAbbreviation = "zh-TW" }, null)</li>
 </ul>

@@ -2,23 +2,24 @@
 
 @{
     ViewBag.Title = ViewBag.CategoryName;
+    string CategoryNameViewBag = ViewBag.CategoryName;
 }
 
-<h2>@ViewBag.CategoryName</h2>
+<h2>@ViewBag.CategoryName2</h2>
 
 <table class="table">
     <tr>
         <th>
-            Name
+            @IrsaWebStore.Resources.GlobalRes.Name
         </th>
         <th>
-            Description
+            @IrsaWebStore.Resources.GlobalRes.Description
         </th>
         <th>
-            Price
+            @IrsaWebStore.Resources.GlobalRes.Price
         </th>
         <th>
-            Image
+            @IrsaWebStore.Resources.GlobalRes.Image
         </th>
         <th></th>
     </tr>

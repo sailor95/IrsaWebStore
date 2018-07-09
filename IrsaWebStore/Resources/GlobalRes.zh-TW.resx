@@ -120,6 +120,12 @@
   <data name="About_Us" xml:space="preserve">
     <value>關於</value>
   </data>
+  <data name="air_soft_guns" xml:space="preserve">
+    <value>空氣槍</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>分類</value>
+  </data>
   <data name="CategoryId" xml:space="preserve">
     <value>種類編號</value>
   </data>
@@ -132,11 +138,20 @@
   <data name="Checkout" xml:space="preserve">
     <value>結帳</value>
   </data>
+  <data name="Chinese_tw" xml:space="preserve">
+    <value>繁體中文</value>
+  </data>
   <data name="Create_Account" xml:space="preserve">
     <value>創建帳號</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>商品敘述</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="gaming" xml:space="preserve">
+    <value>電玩</value>
   </data>
   <data name="HasSideBar" xml:space="preserve">
     <value>邊攔</value>
@@ -147,11 +162,17 @@
   <data name="Id" xml:space="preserve">
     <value>編號</value>
   </data>
+  <data name="Image" xml:space="preserve">
+    <value>圖片</value>
+  </data>
   <data name="ImageName" xml:space="preserve">
     <value>圖片名稱</value>
   </data>
   <data name="Item_s" xml:space="preserve">
     <value>物品</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>語言</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>登入</value>
@@ -168,6 +189,9 @@
   <data name="Price" xml:space="preserve">
     <value>價錢</value>
   </data>
+  <data name="screens" xml:space="preserve">
+    <value>螢幕</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>搜尋</value>
   </data>
@@ -182,6 +206,9 @@
   </data>
   <data name="Sorting" xml:space="preserve">
     <value>編序</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>測試</value>
   </data>
   <data name="This_field_is_required" xml:space="preserve">
     <value>此欄位不得為空</value>

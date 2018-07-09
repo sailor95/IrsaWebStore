@@ -70,6 +70,24 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Air-soft Guns.
+        /// </summary>
+        public static string air_soft_guns {
+            get {
+                return ResourceManager.GetString("air_soft_guns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categories.
+        /// </summary>
+        public static string Categories {
+            get {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CategoryId.
         /// </summary>
         public static string CategoryId {
@@ -106,6 +124,15 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 繁體中文.
+        /// </summary>
+        public static string Chinese_tw {
+            get {
+                return ResourceManager.GetString("Chinese_tw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Account.
         /// </summary>
         public static string Create_Account {
@@ -120,6 +147,24 @@ namespace IrsaWebStore.Resources {
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gaming.
+        /// </summary>
+        public static string gaming {
+            get {
+                return ResourceManager.GetString("gaming", resourceCulture);
             }
         }
         
@@ -151,6 +196,15 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ImageName.
         /// </summary>
         public static string ImageName {
@@ -165,6 +219,15 @@ namespace IrsaWebStore.Resources {
         public static string Item_s {
             get {
                 return ResourceManager.GetString("Item_s", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
             }
         }
         
@@ -214,6 +277,15 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Screens.
+        /// </summary>
+        public static string screens {
+            get {
+                return ResourceManager.GetString("screens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search {
@@ -255,6 +327,15 @@ namespace IrsaWebStore.Resources {
         public static string Sorting {
             get {
                 return ResourceManager.GetString("Sorting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        public static string test {
+            get {
+                return ResourceManager.GetString("test", resourceCulture);
             }
         }
         

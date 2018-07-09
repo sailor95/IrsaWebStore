@@ -2,8 +2,10 @@
 using IrsaWebStore.Models.ViewModel.Shop;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Web;
 using System.Web.Mvc;
 
@@ -79,10 +81,16 @@ namespace IrsaWebStore.Controllers
                 CategoryDTO categoryDTO = db.Categories.Where(x => x.Slug == name).FirstOrDefault();
                 int catId = categoryDTO.Id;
                 var productCat = categoryDTO.Name;
+                var productSlug = categoryDTO.Slug;
 
                 productVMList = db.Products.ToArray().Where(x => x.CategoryId == catId).Select(x => new ProductVM(x)).ToList();
 
                 ViewBag.CategoryName = productCat;
+
+                var culture1 = new System.Globalization.CultureInfo(Request.Cookies["Language"].Value);
+                //var Ccc = Resources.GlobalRes.ResourceManager.GetString(productSlug, culture1);
+                ViewBag.CategoryName2 = Resources.GlobalRes.ResourceManager.GetString(productSlug, culture1); ;
+
                 // var productCat = db.Products.Where(x => x.CategoryId == catId).FirstOrDefault();
                 // ViewBag.CategoryName = productCat.CategoryName;
 

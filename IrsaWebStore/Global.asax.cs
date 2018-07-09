@@ -55,6 +55,7 @@ namespace IrsaWebStore
             }
             else
             {
+                HttpContext.Current.Request.Cookies["Language"].Value = "zh-TW";
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("zh-TW");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-TW");
             }
