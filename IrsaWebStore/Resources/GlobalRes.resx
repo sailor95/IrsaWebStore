@@ -198,7 +198,7 @@
   <data name="Search_product" xml:space="preserve">
     <value>Search for products...</value>
   </data>
-  <data name="Services" xml:space="preserve">
+  <data name="services" xml:space="preserve">
     <value>Services</value>
   </data>
   <data name="Slug" xml:space="preserve">
@@ -218,5 +218,17 @@
   </data>
   <data name="Your_cart" xml:space="preserve">
     <value>Your cart</value>
+  </data>
+  <data name="Create_an_account" xml:space="preserve">
+    <value>Create an account</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Remember_Me" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

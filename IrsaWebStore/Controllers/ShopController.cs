@@ -88,7 +88,6 @@ namespace IrsaWebStore.Controllers
                 ViewBag.CategoryName = productCat;
 
                 var culture1 = new System.Globalization.CultureInfo(Request.Cookies["Language"].Value);
-                //var Ccc = Resources.GlobalRes.ResourceManager.GetString(productSlug, culture1);
                 ViewBag.CategoryName2 = Resources.GlobalRes.ResourceManager.GetString(productSlug, culture1); ;
 
                 // var productCat = db.Products.Where(x => x.CategoryId == catId).FirstOrDefault();

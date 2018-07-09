@@ -142,6 +142,15 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create an account.
+        /// </summary>
+        public static string Create_an_account {
+            get {
+                return ResourceManager.GetString("Create_an_account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
@@ -268,11 +277,29 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price.
         /// </summary>
         public static string Price {
             get {
                 return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember Me.
+        /// </summary>
+        public static string Remember_Me {
+            get {
+                return ResourceManager.GetString("Remember_Me", resourceCulture);
             }
         }
         
@@ -306,9 +333,9 @@ namespace IrsaWebStore.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Services.
         /// </summary>
-        public static string Services {
+        public static string services {
             get {
-                return ResourceManager.GetString("Services", resourceCulture);
+                return ResourceManager.GetString("services", resourceCulture);
             }
         }
         
@@ -354,6 +381,15 @@ namespace IrsaWebStore.Resources {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
         

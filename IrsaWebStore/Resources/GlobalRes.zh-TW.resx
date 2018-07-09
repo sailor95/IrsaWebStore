@@ -156,7 +156,7 @@
   <data name="HasSideBar" xml:space="preserve">
     <value>邊攔</value>
   </data>
-  <data name="Home" xml:space="preserve">
+  <data name="home" xml:space="preserve">
     <value>首頁</value>
   </data>
   <data name="Id" xml:space="preserve">
@@ -198,7 +198,7 @@
   <data name="Search_product" xml:space="preserve">
     <value>搜尋商品...</value>
   </data>
-  <data name="Services" xml:space="preserve">
+  <data name="services" xml:space="preserve">
     <value>服務</value>
   </data>
   <data name="Slug" xml:space="preserve">
@@ -218,5 +218,17 @@
   </data>
   <data name="Your_cart" xml:space="preserve">
     <value>購物車</value>
+  </data>
+  <data name="Create_an_account" xml:space="preserve">
+    <value>創建帳號</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="Remember_Me" xml:space="preserve">
+    <value>記住我</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>使用者名稱</value>
   </data>
 </root>

@@ -7,11 +7,11 @@
 @foreach (var item in Model) {
     if (tempPageTitle == item.Title)
     {
-        <li class="active"><a href="/@item.Slug">@item.Title</a></li>
+        <li class="active"><a href="/@item.Slug">@IrsaWebStore.Resources.GlobalRes.ResourceManager.GetString(item.Slug)</a></li>
     }
     else
     {
-        <li><a href="/@item.Slug">@item.Title</a></li>
+        <li><a href="/@item.Slug">@IrsaWebStore.Resources.GlobalRes.ResourceManager.GetString(item.Slug)</a></li>
     }
 
     @*<li><a href="/@item.Slug">@item.Title</a></li>*@
