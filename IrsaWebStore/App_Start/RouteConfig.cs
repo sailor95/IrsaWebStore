@@ -13,6 +13,9 @@ namespace IrsaWebStore
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Language", "Language/{action}/{id}",
+                new { controller = "Language", action = "Index", id = UrlParameter.Optional }, new[] { "IrsaWebStore.Controllers" });
+
             routes.MapRoute("Account", "Account/{action}/{id}",
                 new { controller = "Account", action = "Index", id = UrlParameter.Optional }, new[] { "IrsaWebStore.Controllers" });
 

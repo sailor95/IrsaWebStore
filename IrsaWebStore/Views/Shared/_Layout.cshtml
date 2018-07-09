@@ -23,26 +23,29 @@
                     @Html.Action("PagesMenuPartial", "Pages")
                     @if (Request.IsAuthenticated)
                     {
-                        <li><a href="/account/logout">Logout</a></li>
+                        @*<li><a href="/account/logout">Logout</a></li>*@
+                        <li><a href="/account/logout">@IrsaWebStore.Resources.GlobalRes.Logout</a></li>
                     }
                     else
                     {
                         if (ViewBag.Title == "Login")
                         {
-                            <li class="active"><a href="/account/login">Login</a></li>
+                            <li class="active"><a href="/account/login">@IrsaWebStore.Resources.GlobalRes.Login</a></li>
                         }
                         else
                         {
-                            <li><a href="/account/login">Login</a></li>
+                            <li><a href="/account/login">@IrsaWebStore.Resources.GlobalRes.Login</a></li>
                         }
 
                         if (ViewBag.Title == "CreateAccount")
                         {
-                            <li class="active"><a href="/account/create-account">Sign Up</a></li>
+                            @*<li class="active"><a href="/account/create-account">Sign Up</a></li>*@
+                            <li class="active"><a href="/account/create-account">@IrsaWebStore.Resources.GlobalRes.Create_Account</a></li>
                         }
                         else
                         {
-                            <li><a href="/account/create-account">Sign Up</a></li>
+                            @*<li><a href="/account/create-account">Sign Up</a></li>*@
+                            <li><a href="/account/create-account">@IrsaWebStore.Resources.GlobalRes.Create_Account</a></li>
                         }
                     }
 
@@ -84,12 +87,12 @@
                             @*<ul class="nav navbar-nav navbar-collapse navbar-right searchBox">*@
                             <li>
                                 @*<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">*@
-                                @Html.Editor("search", new { HtmlAttributes = new { @class = "form-control input-sm", placeholder = "Search for products..." } })
+                                @Html.Editor("search", new { HtmlAttributes = new { @class = "form-control input-sm", placeholder = IrsaWebStore.Resources.GlobalRes.Search_product} })
                             </li>
 
                             <li>
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
-                                    Search
+                                    @IrsaWebStore.Resources.GlobalRes.Search
                                 </button>
                             </li>
                         </ul>                    }
@@ -140,6 +143,7 @@
         </div>
         <hr />
         <footer>
+            <p>@Html.ActionLink(IrsaWebStore.Resources.GlobalRes.Change_Language, "Index", "Language")</p>
             <p>&copy; @DateTime.Now.Year - DavidWebStore</p>
         </footer>
     </div>
