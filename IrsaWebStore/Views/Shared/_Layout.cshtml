@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - D.WS</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Scripts/flag-icon-css-master/flag-icon-css-master/css/flag-icon.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-topcancel">
@@ -70,7 +71,7 @@
                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <ul class="navbar-collapse collapse navbar-right adminarea">
-                        <li>@Html.ActionLink("Admin Area", "Index", "Dashboard", new { area = "Admin"}, null)</li>
+                        <li>@Html.ActionLink("Admin Area", "Index", "Dashboard", new { area = "Admin" }, null)</li>
                     </ul>
                 }
                 else
@@ -87,7 +88,7 @@
                             @*<ul class="nav navbar-nav navbar-collapse navbar-right searchBox">*@
                             <li>
                                 @*<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">*@
-                                @Html.Editor("search", new { HtmlAttributes = new { @class = "form-control input-sm", placeholder = IrsaWebStore.Resources.GlobalRes.Search_product} })
+                                @Html.Editor("search", new { HtmlAttributes = new { @class = "form-control input-sm", placeholder = IrsaWebStore.Resources.GlobalRes.Search_product } })
                             </li>
 
                             <li>
@@ -107,9 +108,9 @@
             <div class="ajaxbg"><span><img src="~/Content/Img/ajax-loader.gif" /></span></div>
 
             @if (ViewBag.Title != "Create Account" &&
-                ViewBag.Title != "Login" &&
-                ViewBag.Title != "User Profile" &&
-                ViewBag.Title != "Orders")
+    ViewBag.Title != "Login" &&
+    ViewBag.Title != "User Profile" &&
+    ViewBag.Title != "Orders")
             {
                 <div class="col-xs-12 col-md-2">
                     @Html.Action("CategoryMenuPartial", "Shop")
@@ -144,7 +145,21 @@
         </div>
         <hr />
         <footer>
-            <p>@Html.ActionLink(IrsaWebStore.Resources.GlobalRes.Change_Language, "Index", "Language")</p>
+            <p>
+                @{
+                    if (IrsaWebStore.Resources.GlobalRes.flag_code.ToString() == "TW")
+                    {<span class="flag-icon flag-icon-tw flag-icon-squared"></span> }
+                    else
+                    { <span class="flag-icon flag-icon-us flag-icon-squared"></span>} 
+                }
+                @Html.ActionLink(IrsaWebStore.Resources.GlobalRes.Change_Language, "Index", "Language") |
+                @{
+                    if (IrsaWebStore.Resources.GlobalRes.flag_code.ToString() == "TW")
+                    { <a href="#"><span class="glyphicon glyphicon-btc"></span></a>}
+                    else
+                    {<a href="#"><span class="glyphicon glyphicon-usd"></span></a> } 
+                }
+            </p>
             <p>&copy; @DateTime.Now.Year - DavidWebStore</p>
         </footer>
     </div>

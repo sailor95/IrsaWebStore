@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
@@ -24,11 +21,14 @@ namespace IrsaWebStore.Controllers
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(LanguageAbbreviation);
             }
 
+            
             HttpCookie cookie = new HttpCookie("Language")
             {
                 Value = LanguageAbbreviation
             };
             Response.Cookies.Add(cookie);
+            
+            
 
             return View("Index");
         }

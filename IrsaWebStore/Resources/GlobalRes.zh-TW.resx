@@ -231,4 +231,7 @@
   <data name="Username" xml:space="preserve">
     <value>使用者名稱</value>
   </data>
+  <data name="flag_code" xml:space="preserve">
+    <value>TW</value>
+  </data>
 </root>

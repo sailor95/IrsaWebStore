@@ -169,6 +169,15 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to US.
+        /// </summary>
+        public static string flag_code {
+            get {
+                return ResourceManager.GetString("flag_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gaming.
         /// </summary>
         public static string gaming {

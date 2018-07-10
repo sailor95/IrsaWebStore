@@ -49,6 +49,15 @@ namespace IrsaWebStore
         {
             HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
 
+            //string cookieForLanguage = "Language";
+            //HttpContext context = ((HttpApplication)sender).Context;
+            //HttpCookie cookie = null;
+
+            //if (context.Response.Cookies.AllKeys.Contains(cookieForLanguage))
+            //{
+            //    cookie = context.Response.Cookies[cookieForLanguage];
+            //}
+
             if (cookie != null && cookie.Value != null)
             {
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookie.Value);
