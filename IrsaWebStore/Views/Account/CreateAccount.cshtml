@@ -4,7 +4,7 @@
     ViewBag.Title = "CreateAccount";
 }
 
-<h2>CreateAccount</h2>
+<h2>@IrsaWebStore.Resources.GlobalRes.Create_Account</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -14,7 +14,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <label class="control-label col-md-2" for="HasSidebar">First Name</label>
+            <label class="control-label col-md-2" for="HasSidebar">@IrsaWebStore.Resources.GlobalRes.First_Name</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="HasSidebar">Last Name</label>
+            <label class="control-label col-md-2" for="HasSidebar">@IrsaWebStore.Resources.GlobalRes.Last_Name</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="HasSidebar">Username</label>
+            <label class="control-label col-md-2" for="HasSidebar">@IrsaWebStore.Resources.GlobalRes.Username</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="HasSidebar">Password</label>
+            <label class="control-label col-md-2" for="HasSidebar">@IrsaWebStore.Resources.GlobalRes.Password</label>
             <div class="col-md-10">
                 @Html.PasswordFor(model => model.Password, new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
@@ -54,7 +54,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="HasSidebar">Confirm Password</label>
+            <label class="control-label col-md-2" for="HasSidebar">@IrsaWebStore.Resources.GlobalRes.Confirm_Password</label>
             <div class="col-md-10">
                 @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
@@ -63,7 +63,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value=@IrsaWebStore.Resources.GlobalRes.Create class="btn btn-default" />
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
     int count = 1;
 }
 
-<h2>Cart Details</h2>
+<h2>@IrsaWebStore.Resources.GlobalRes.Cart_Details</h2>
 
 @if (ViewBag.Message != null)
 {
@@ -16,22 +16,22 @@ else
     <table class="table">
         <tr>
             <th>
-                Name
+                @IrsaWebStore.Resources.GlobalRes.Name
             </th>
             <th>
-                Quantity
+                @IrsaWebStore.Resources.GlobalRes.Quantity
             </th>
             <th>
-                Price
+                @IrsaWebStore.Resources.GlobalRes.Price
             </th>
             <th>
-                Image
+                @IrsaWebStore.Resources.GlobalRes.Image
             </th>
             <th>
 
             </th>
             <th>
-                Total
+                @IrsaWebStore.Resources.GlobalRes.Total
             </th>
 
         </tr>
@@ -46,7 +46,7 @@ else
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    $@Html.DisplayFor(modelItem => item.Price)
+                    @IrsaWebStore.Resources.GlobalRes.Currency_icon@Html.DisplayFor(modelItem => item.PriceWithRate)
                 </td>
                 <td>
                     <img src="/Images/Uploads/Products/@item.ProductId/Thumbs/@item.Image" />
@@ -54,10 +54,10 @@ else
                 <td>
                     <a href="#" class="incrproduct" data-id="@item.ProductId">+</a> |
                     <a href="#" class="decrproduct" data-id="@item.ProductId">-</a> |
-                    <a href="#" class="removeproduct" data-id="@item.ProductId">Remove</a>
+                    <a href="#" class="removeproduct" data-id="@item.ProductId">@IrsaWebStore.Resources.GlobalRes.Remove</a>
                 </td>
                 <td class="total@(item.ProductId)">
-                    $@Html.DisplayFor(modelItem => item.Total)
+                    @IrsaWebStore.Resources.GlobalRes.Currency_icon@Html.DisplayFor(modelItem => item.Total)
                 </td>
             </tr>
         }
@@ -68,7 +68,7 @@ else
             <td></td>
             <td></td>
             <td></td>
-            <td class="grandtotal"><b>Grand total:</b> $<span>@ViewBag.GrandTotal</span></td>
+            <td class="grandtotal"><b>@IrsaWebStore.Resources.GlobalRes.Grand_total:</b> @IrsaWebStore.Resources.GlobalRes.Currency_icon<span>@ViewBag.GrandTotal</span></td>
         </tr>
     </table>
 
@@ -92,7 +92,7 @@ else
     </div>
 
     <br />
-    <a href="#" class="placeorder btn btn-primary pull-right">Checkout</a>
+    <a href="#" class="placeorder btn btn-primary pull-right">@IrsaWebStore.Resources.GlobalRes.Checkout</a>
 }
 
 

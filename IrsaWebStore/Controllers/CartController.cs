@@ -32,7 +32,7 @@ namespace IrsaWebStore.Controllers
 
             if (cart.Count == 0 || Session["cart"] == null)
             {
-                ViewBag.Message = "Your cart is empty.";
+                ViewBag.Message = Resources.GlobalRes.cart_empty;
                 return View();
             }
 
@@ -54,7 +54,7 @@ namespace IrsaWebStore.Controllers
 
             if (cart.Count == 0 || Session["cart"] == null)
             {
-                ViewBag.Message = "Your cart is empty.";
+                ViewBag.Message = Resources.GlobalRes.cart_empty;
                 return View();
             }
 

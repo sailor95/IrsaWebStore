@@ -234,4 +234,55 @@
   <data name="flag_code" xml:space="preserve">
     <value>US</value>
   </data>
+  <data name="Added_to_cart" xml:space="preserve">
+    <value>The product has been added to your cart.</value>
+  </data>
+  <data name="Add_to_Cart" xml:space="preserve">
+    <value>Add to Cart</value>
+  </data>
+  <data name="Cart_Details" xml:space="preserve">
+    <value>Cart Details</value>
+  </data>
+  <data name="cart_empty" xml:space="preserve">
+    <value>Your cart is empty.</value>
+  </data>
+  <data name="Confirm_Password" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Currency_glyphicon" xml:space="preserve">
+    <value>glyphicon-usd</value>
+  </data>
+  <data name="Currency_icon" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="Currency_rate" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="First_Name" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Grand_total" xml:space="preserve">
+    <value>Grand total</value>
+  </data>
+  <data name="Last_Name" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Product_Gallery" xml:space="preserve">
+    <value>Product Gallery</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
 </root>

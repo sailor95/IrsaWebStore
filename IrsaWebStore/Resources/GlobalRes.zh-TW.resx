@@ -234,4 +234,55 @@
   <data name="flag_code" xml:space="preserve">
     <value>TW</value>
   </data>
+  <data name="Added_to_cart" xml:space="preserve">
+    <value>商品已放入購物車</value>
+  </data>
+  <data name="Add_to_Cart" xml:space="preserve">
+    <value>放入購物車</value>
+  </data>
+  <data name="Cart_Details" xml:space="preserve">
+    <value>訂單內容</value>
+  </data>
+  <data name="cart_empty" xml:space="preserve">
+    <value>尚無商品</value>
+  </data>
+  <data name="Confirm_Password" xml:space="preserve">
+    <value>確認密碼</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>創建</value>
+  </data>
+  <data name="Currency_glyphicon" xml:space="preserve">
+    <value>glyphicon-btc</value>
+  </data>
+  <data name="Currency_icon" xml:space="preserve">
+    <value>Ntd.</value>
+  </data>
+  <data name="Currency_rate" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細內容</value>
+  </data>
+  <data name="First_Name" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="Grand_total" xml:space="preserve">
+    <value>加總金額</value>
+  </data>
+  <data name="Last_Name" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="Product_Gallery" xml:space="preserve">
+    <value>商品圖片</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>數量</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>總額</value>
+  </data>
 </root>

@@ -32,7 +32,8 @@ namespace IrsaWebStore.Models.ViewModel.Shop
         public string Slug { get; set; }
         [Required]
         public string Description { get; set; }
-        public decimal Price { get; set; }
+        public decimal Price { get ; set; }
+        public decimal PriceWithRate { get { return Decimal.Parse(Resources.GlobalRes.Currency_rate) * Price; } }
         public string CategoryName { get; set; }
         [Required]
         public int CategoryId { get; set; }

@@ -15,7 +15,7 @@
             <span class="glyphicon glyphicon-shopping-cart"></span>
         </a>
     }
-    @IrsaWebStore.Resources.GlobalRes.Your_cart: @Model.Quantity @IrsaWebStore.Resources.GlobalRes.Item_s - $@Model.Price
+    @IrsaWebStore.Resources.GlobalRes.Your_cart: @Model.Quantity @IrsaWebStore.Resources.GlobalRes.Item_s - @IrsaWebStore.Resources.GlobalRes.Currency_icon@Model.PriceWithRate
     <br />
     <span class="glyphicon glyphicon-check"></span> @Html.ActionLink(@IrsaWebStore.Resources.GlobalRes.Checkout, "Index")
 </div>

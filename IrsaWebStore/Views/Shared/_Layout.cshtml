@@ -153,12 +153,7 @@
                     { <span class="flag-icon flag-icon-us flag-icon-squared"></span>} 
                 }
                 @Html.ActionLink(IrsaWebStore.Resources.GlobalRes.Change_Language, "Index", "Language") |
-                @{
-                    if (IrsaWebStore.Resources.GlobalRes.flag_code.ToString() == "TW")
-                    { <a href="#"><span class="glyphicon glyphicon-btc"></span></a>}
-                    else
-                    {<a href="#"><span class="glyphicon glyphicon-usd"></span></a> } 
-                }
+                <a href="#"><span class="glyphicon @IrsaWebStore.Resources.GlobalRes.Currency_glyphicon"></span></a>
             </p>
             <p>&copy; @DateTime.Now.Year - DavidWebStore</p>
         </footer>

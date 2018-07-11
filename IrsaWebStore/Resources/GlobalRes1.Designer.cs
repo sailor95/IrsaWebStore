@@ -70,11 +70,47 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to Cart.
+        /// </summary>
+        public static string Add_to_Cart {
+            get {
+                return ResourceManager.GetString("Add_to_Cart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The product has been added to your cart..
+        /// </summary>
+        public static string Added_to_cart {
+            get {
+                return ResourceManager.GetString("Added_to_cart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Air-soft Guns.
         /// </summary>
         public static string air_soft_guns {
             get {
                 return ResourceManager.GetString("air_soft_guns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cart Details.
+        /// </summary>
+        public static string Cart_Details {
+            get {
+                return ResourceManager.GetString("Cart_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your cart is empty..
+        /// </summary>
+        public static string cart_empty {
+            get {
+                return ResourceManager.GetString("cart_empty", resourceCulture);
             }
         }
         
@@ -133,6 +169,24 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string Confirm_Password {
+            get {
+                return ResourceManager.GetString("Confirm_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Account.
         /// </summary>
         public static string Create_Account {
@@ -151,6 +205,33 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to glyphicon-usd.
+        /// </summary>
+        public static string Currency_glyphicon {
+            get {
+                return ResourceManager.GetString("Currency_glyphicon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to $.
+        /// </summary>
+        public static string Currency_icon {
+            get {
+                return ResourceManager.GetString("Currency_icon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        public static string Currency_rate {
+            get {
+                return ResourceManager.GetString("Currency_rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
@@ -160,11 +241,29 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         public static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string First_Name {
+            get {
+                return ResourceManager.GetString("First_Name", resourceCulture);
             }
         }
         
@@ -183,6 +282,15 @@ namespace IrsaWebStore.Resources {
         public static string gaming {
             get {
                 return ResourceManager.GetString("gaming", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grand total.
+        /// </summary>
+        public static string Grand_total {
+            get {
+                return ResourceManager.GetString("Grand_total", resourceCulture);
             }
         }
         
@@ -250,6 +358,15 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string Last_Name {
+            get {
+                return ResourceManager.GetString("Last_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -304,11 +421,38 @@ namespace IrsaWebStore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Gallery.
+        /// </summary>
+        public static string Product_Gallery {
+            get {
+                return ResourceManager.GetString("Product_Gallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity.
+        /// </summary>
+        public static string Quantity {
+            get {
+                return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember Me.
         /// </summary>
         public static string Remember_Me {
             get {
                 return ResourceManager.GetString("Remember_Me", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
             }
         }
         
@@ -390,6 +534,15 @@ namespace IrsaWebStore.Resources {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
             }
         }
         

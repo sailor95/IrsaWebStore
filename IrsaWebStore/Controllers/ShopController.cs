@@ -80,18 +80,18 @@ namespace IrsaWebStore.Controllers
             {
                 CategoryDTO categoryDTO = db.Categories.Where(x => x.Slug == name).FirstOrDefault();
                 int catId = categoryDTO.Id;
-                var productCat = categoryDTO.Name;
+                //var productCat = categoryDTO.Name;
                 var productSlug = categoryDTO.Slug;
 
                 productVMList = db.Products.ToArray().Where(x => x.CategoryId == catId).Select(x => new ProductVM(x)).ToList();
 
-                ViewBag.CategoryName = productCat;
+                //ViewBag.CategoryName = productCat;
 
-                var culture1 = new System.Globalization.CultureInfo(Request.Cookies["Language"].Value);
-                ViewBag.CategoryName2 = Resources.GlobalRes.ResourceManager.GetString(productSlug, culture1); ;
-
-                // var productCat = db.Products.Where(x => x.CategoryId == catId).FirstOrDefault();
-                // ViewBag.CategoryName = productCat.CategoryName;
+                var culture1 = new CultureInfo(Request.Cookies["Language"].Value);
+                ViewBag.CategoryName2 = Resources.GlobalRes.ResourceManager.GetString(productSlug, culture1); 
+                
+                var productCat = db.Products.Where(x => x.CategoryId == catId).FirstOrDefault();
+                ViewBag.CategoryName = productCat.CategoryName;
 
             }
 
